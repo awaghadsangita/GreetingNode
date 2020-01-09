@@ -1,6 +1,8 @@
+let greetingService=require('../service/GreetingService');
 class GreetingController{
     sayHello(req,res){
-        res.send('hello world');
+        let greeting=greetingService.sayHelloWorldService();
+        res.send(greeting);
     }
 }
 module.exports=new GreetingController();
