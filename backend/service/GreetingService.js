@@ -1,6 +1,6 @@
 class GreetingService{
-    sayHelloWorldService(){
-        return 'Hello World';
+    sayHelloWorldService(user){
+        return 'Hello '+user.firstName+" "+user.lastName;
     }
 }
 module.exports=new GreetingService();
