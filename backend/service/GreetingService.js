@@ -31,6 +31,9 @@ class GreetingService {
             })
         })
     }
+    getMessages(){
+
+    }
 }
 
 module.exports = new GreetingService();

@@ -1,7 +1,7 @@
 let greetingService = require('../service/GreetingService');
 
 class GreetingController {
-    saveMessageController(req, res) {
+    saveMessage(req, res) {
         let name="unknown";
         if(req.query.firstName!=undefined&&req.query.lastName!=undefined)
             name=req.query.firstName + " " + req.query.lastName;
@@ -25,7 +25,7 @@ class GreetingController {
         })
     }
 
-    getByIdController(req,res){
+    getById(req,res){
         console.log(req.query.id);
         let user=greetingService.getById(req.query.id);
         user.then(data=>{
@@ -36,6 +36,8 @@ class GreetingController {
             })
         })
     }
+
+
 }
 
 module.exports = new GreetingController();
