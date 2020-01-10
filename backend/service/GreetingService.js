@@ -31,8 +31,15 @@ class GreetingService {
             })
         })
     }
-    getMessages(){
 
+    getMessages(){
+        return new Promise((resolve, reject) => {
+            Message.find().then(users => {
+                resolve(users);
+            }).catch(error => {
+                reject({message: "error occurred while retrieving message " + error})
+            })
+        })
     }
 }
 
