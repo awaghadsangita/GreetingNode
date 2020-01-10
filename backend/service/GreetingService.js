@@ -1,15 +1,17 @@
+const Message=require('../model/GreetingModel')
 class GreetingService{
-    sayHelloWorldService(user){
-        let greeting='Hello World';
-        console.log(user.firstName)
-        if(user.firstName!=undefined && user.lastName!=undefined)
-            greeting='Hello '+user.firstName+" "+user.lastName;
-        else if(user.firstName!=undefined)
-            greeting='Hello '+user.firstName;
-        else if(user.lastName!=undefined)
-            greeting='Hello '+user.lastName;
-
-        return greeting;
+    saveMessage(user){
+        const message=new Message({
+            name:user.name||"unknown",
+            message:user.message
+        })
+        return new Promise(function(resolve,reject){
+            message.save().then(data=>{
+                resolve(data)
+            }).catch(error=>{
+                reject(error)
+            });
+        });
     }
 }
 module.exports=new GreetingService();
