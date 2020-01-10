@@ -24,6 +24,18 @@ class GreetingController {
             })
         })
     }
+
+    getByIdController(req,res){
+        console.log(req.query.id);
+        let user=greetingService.getById(req.query.id);
+        user.then(data=>{
+            res.send(data);
+        }).catch(error=>{
+            res.status(500).send({
+                message: error.message || "some error occurred while retrieving message"
+            })
+        })
+    }
 }
 
 module.exports = new GreetingController();

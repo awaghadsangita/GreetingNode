@@ -2,8 +2,8 @@ const mongoose=require('mongoose');
 
 const messageSchema=mongoose.Schema({
     name:String,
-    content:String
+    message:String
 },{
-    timestamp:true
+    timestamps:true
 });
 module.exports=mongoose.model('message',messageSchema);
