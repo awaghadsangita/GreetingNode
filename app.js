@@ -13,6 +13,7 @@ app.use('/greeting', greetingRouter);
 
 const dbConfig=require('./backend/config/database.config');
 const mongoose=require('mongoose');
+mongoose.set('useFindAndModify',false)
 mongoose.connect(dbConfig.url,{
     useNewUrlParser:true
 }).then(()=>{

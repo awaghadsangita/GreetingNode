@@ -41,6 +41,16 @@ class GreetingService {
             })
         })
     }
+
+    updateMessage(user){
+        return new Promise((resolve,reject)=>{
+            Message.findOneAndUpdate({'_id':user.id},{$set:{'message':user.message}}).then(message=>{
+                resolve(message);
+            }).catch(error=>{
+                reject({message: "error occurred while updating message " + error})
+            })
+        })
+    }
 }
 
 module.exports = new GreetingService();
